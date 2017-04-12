@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <?define AppCode = "CSDInstaller" ?>
+  <?define AppProductCode = "{c97a82b1-8a68-4a4a-a369-b45698fb59b5}" ?>
+  <?define AppVersionMajor = "1" ?>
+  <?define AppVersionMinor = "0" ?>
+  <?define AppVersionPatch = "0" ?>
+  <?define AppVersionBuild = "0" ?>
+  <?define AppVersion = "$(var.AppVersionMajor).$(var.AppVersionMinor).$(var.AppVersionPatch).$(var.AppVersionBuild)" ?>
+  <?define AppManufacturer = "the Community" ?>
+  <?define DefaultCulture = "en-US" ?>
+  <Product Id="$(var.AppProductCode)" Name="$(var.AppCode)" Language="!(loc.LANGUAGE)" Version="$(var.AppVersion)" Manufacturer="$(var.AppManufacturer)" UpgradeCode="{3db17435-f25c-4634-8a13-32e8d1d81003}">
+    <Package Id="*" InstallerVersion="200" Compressed="yes" />
+    <Media Id="1" Cabinet="media1.cab" EmbedCab="no" />
+    <Property Id="INSTALLLEVEL" Value="100" />
+    <Property Id="ALLUSERS" Value="1" />
+    <Property Id="TEST" Value="NO" />
+    <Icon Id="icon.ico" SourceFile="..\ProductBuild\sampleIcon.ico" />
+
+    <Directory Id="TARGETDIR" Name="SourceDir" DiskId="1">
+      <Directory Id="ProgramMenuFolder" Name="Programs">
+        <Directory Id="ProgramMenuDir" Name="!(loc.APPNAME)">
+          <Component Id="pmd" Guid="{0e53b1b0-b68e-457a-b9ec-7a1c009f6555}">
+            <RegistryValue Root="HKCU" Key="SOFTWARE\$(var.AppCode)\ProgramMenuDir" Type="string" Value="ProgramMenuDir" KeyPath="yes" />
+            <RemoveFolder Id="ProgramMenuDirRF" On="uninstall" />
+          </Component>
+        </Directory>
+      </Directory>
+      <Directory Id="DesktopFolder" Name="Desktop" />
+    </Directory>
+
+    <?include Product.Uninstaller.wxi ?>
+    <DirectoryRef Id="TARGETDIR">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="INSTALLLOCATION" Name="$(var.AppCode)">
+          <Component Id="MainExecutable" Guid="{70eb31fd-adf7-43fc-bf54-3ba76d801e11}">
+            <File Id="MainExecutableFile" Name="SampleApp.exe" Source="..\ProductBuild\sampleFile.txt" KeyPath="yes">
+              <Shortcut Id="MainExecutableStartMenu" Directory="ProgramMenuDir" Name="!(loc.APPNAME)" WorkingDirectory="INSTALLDIR" Icon="icon.ico" IconIndex="0" Advertise="yes"/>
+              <Shortcut Id="MainExecutableDesktop" Directory="DesktopFolder" Name="!(loc.APPNAME)" WorkingDirectory="INSTALLDIR" Icon="icon.ico" IconIndex="0" Advertise="yes" />
+            </File>
+          </Component>
+          <Component Id="SubFeatureExecutable" Guid="{9ceee940-940c-471d-be94-b0060ba90508}">
+            <File Id="SubFeatureExecutableFile" Name="SampleLibrary.dll" Source="..\ProductBuild\sampleFile.txt" Vital="yes" />
+          </Component>
+          <Component Id="DocumentationPound" Guid="{5b857cad-1242-4601-80f0-6c6e88a766b2}">
+            <File Id="DocumentationPoundFile" Name="Pound.currency" Source="..\ProductBuild\sampleFile.txt" Vital="yes" />
+          </Component>
+          <Component Id="DocumentationEuro" Guid="{48a4baa5-a168-46e6-8a44-c85d2062b0fd}">
+            <File Id="DocumentationEuroFile" Name="Euro.currency" Source="..\ProductBuild\sampleFile.txt" Vital="yes" />
+          </Component>
+          <Component Id="DocumentationCommon" Guid="{63c7b38a-13c2-4025-8309-eb01aa04f5ce}">
+            <File Id="DocumentationCommonFile" Name="help.exe" Source="..\ProductBuild\sampleFile.txt" Vital="yes" />
+          </Component>
+          <Component Id="DocumentationEnglish" Guid="{69b31de3-bede-4afa-90b1-2a61448a184b}">
+            <File Id="DocumentationEnglishFile" Name="English.documentation" Source="..\ProductBuild\sampleFile.txt" Vital="yes" />
+          </Component>
+          <Component Id="DocumentationFrench" Guid="{35dd9954-5dec-4b21-8046-87404dd8fba1}">
+            <File Id="DocumentationFrenchFile" Name="French.documentation" Source="..\ProductBuild\sampleFile.txt" Vital="yes" />
+          </Component>
+          <Component Id="DocumentationGerman" Guid="{e3131779-35f6-4b46-9892-b656b86c05f3}">
+            <File Id="DocumentationGermanFile" Name="German.documentation" Source="..\ProductBuild\sampleFile.txt" Vital="yes" />
+          </Component>
+        </Directory>
+      </Directory>
+    </DirectoryRef>
+
+    <Feature Id='MainFeature' Level='1' Title='!(loc.FEATURE.MAINFEATURE.TITLE)' Description='!(loc.FEATURE.MAINFEATURE.DESCRIPTION)' Display='collapse'>
+      <ComponentRef Id='MainExecutable' />
+      <ComponentRef Id='pmd' />
+      <Feature Id='SubFeature' Level='0' Title='!(loc.FEATURE.SUBFEATURE.TITLE)' Description='!(loc.FEATURE.SUBFEATURE.DESCRIPTION)'>
+        <ComponentRef Id='DocumentationPound' />
+        <ComponentRef Id='DocumentationEuro' />
+        <ComponentRef Id='SubFeatureExecutable' />
+        <Condition Level="30000">TEST = "YES"</Condition>
+      </Feature>
+    </Feature>
+    <Feature Id='Documentation' Level='2' Title='!(loc.FEATURE.DOCUMENTATION.TITLE)' Description='!(loc.FEATURE.DOCUMENTATION.DESCRIPTION)' Display='expand'>
+      <ComponentRef Id='DocumentationCommon' />
+      <Feature Id='English' Level='2' Title='!(loc.FEATURE.ENGLISH.TITLE)' Description='!(loc.FEATURE.ENGLISH.DESCRIPTION)' Display='1'>
+        <ComponentRef Id='DocumentationEnglish' />
+        <ComponentRef Id='DocumentationPound' />
+      </Feature>
+      <Feature Id='French' Level='3' Title='!(loc.FEATURE.FRENCH.TITLE)' Description='!(loc.FEATURE.FRENCH.DESCRIPTION)' Display='2'>
+        <ComponentRef Id='DocumentationFrench' />
+        <ComponentRef Id='DocumentationEuro' />
+      </Feature>
+      <Feature Id='German' Level='4' Title='!(loc.FEATURE.GERMAN.TITLE)' Description='!(loc.FEATURE.GERMAN.DESCRIPTION)' Display='3'>
+        <ComponentRef Id='DocumentationGerman' />
+        <ComponentRef Id='DocumentationEuro' />
+      </Feature>
+    </Feature>
+
+    <!--
+    <Binary Id="SharpSetupCAFile" SourceFile="$(var.SharpSetupToolsDir)\SharpSetup.CustomActions.CA.dll"/>
+    <CustomAction Id="SampleCAData" Property="SampleCA" Value="CommandLine=C:\Windows\system32\ping.exe -n 10 127.0.0.1;ApproximateTime=10" Return="check" />
+    <CustomAction Id="SampleCA" DllEntry="ExeCustomAction" BinaryKey="SharpSetupCAFile" Return="check" Execute="deferred" />
+    <InstallExecuteSequence>
+      <Custom Action="SampleCAData" Before="SampleCA"/>
+      <Custom Action="SampleCA" Before="InstallFinalize"/>
+    </InstallExecuteSequence>
+    <UI>
+      <ProgressText Action="SampleCA">Sample Custom Action</ProgressText>
+    </UI>
+    -->
+  </Product>
+</Wix>

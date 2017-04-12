@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' " />
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' " />
+  <PropertyGroup>
+    <ProjectGuid>{C80A57F4-86A8-41F1-8093-38FA0D436F65}</ProjectGuid>
+    <RootNamespace>SharpSetup</RootNamespace>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <Import Project="$(SharpSetupTargetsPath)\SharpSetup.LibTranslation.targets" />
+  <ItemGroup>
+    <ResourceOverride Include="en-US\SharpSetup.Overrides.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceOverride Include="en-GB\SharpSetup.Overrides.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceOverride Include="en-GB\SharpSetup.UI.Controls.DestinationPath.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceOverride Include="en-GB\SharpSetup.UI.Controls.DiskCostList.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceOverride Include="en-GB\SharpSetup.UI.Controls.FeatureTree.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceOverride Include="en-GB\SharpSetup.UI.Controls.InstallationModeSelector.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceOverride Include="en-GB\SharpSetup.UI.Controls.InstallationProgress.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceOverride Include="en-GB\SharpSetup.UI.Forms.Modern.ModernActionStep.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceOverride Include="en-GB\SharpSetup.UI.Forms.Modern.ModernFilesInUseDialog.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceOverride Include="en-GB\SharpSetup.UI.Forms.Modern.ModernWizard.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceOverride Include="en-GB\SharpSetup.Properties.Resources.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceOverride Include="en-GB\SharpSetup.UI.Controls.SimpleDiskCostBox.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceOverride Include="en-GB\SharpSetup.UI.Forms.WizardBase.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceOverride Include="en-US\SharpSetup.UI.Controls.DestinationPath.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceOverride Include="en-US\SharpSetup.UI.Controls.DiskCostList.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceOverride Include="en-US\SharpSetup.UI.Controls.FeatureTree.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceOverride Include="en-US\SharpSetup.UI.Controls.InstallationModeSelector.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceOverride Include="en-US\SharpSetup.UI.Controls.InstallationProgress.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceOverride Include="en-US\SharpSetup.UI.Forms.Modern.ModernActionStep.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceOverride Include="en-US\SharpSetup.UI.Forms.Modern.ModernFilesInUseDialog.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceOverride Include="en-US\SharpSetup.UI.Forms.Modern.ModernWizard.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceOverride Include="en-US\SharpSetup.Properties.Resources.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceOverride Include="en-US\SharpSetup.UI.Controls.SimpleDiskCostBox.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceOverride Include="en-US\SharpSetup.UI.Forms.WizardBase.resx" />
+  </ItemGroup>
+</Project>

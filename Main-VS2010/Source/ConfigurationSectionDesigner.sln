@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dsl", "Dsl\Dsl.csproj", "{23CBF1BA-1C86-4607-A518-B303FB9F099F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DslPackage", "DslPackage\DslPackage.csproj", "{94F8A22C-41CF-4784-A82B-CBB8A1EB4166}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs06.codeplex.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Dsl\\Dsl.csproj
+		SccProjectName1 = Dsl
+		SccLocalPath1 = Dsl
+		SccProjectUniqueName2 = DslPackage\\DslPackage.csproj
+		SccProjectName2 = DslPackage
+		SccLocalPath2 = DslPackage
+		SccProjectUniqueName3 = DslSetup\\DslSetup.csproj
+		SccProjectName3 = DslSetup
+		SccLocalPath3 = DslSetup
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{23CBF1BA-1C86-4607-A518-B303FB9F099F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23CBF1BA-1C86-4607-A518-B303FB9F099F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23CBF1BA-1C86-4607-A518-B303FB9F099F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23CBF1BA-1C86-4607-A518-B303FB9F099F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94F8A22C-41CF-4784-A82B-CBB8A1EB4166}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94F8A22C-41CF-4784-A82B-CBB8A1EB4166}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94F8A22C-41CF-4784-A82B-CBB8A1EB4166}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94F8A22C-41CF-4784-A82B-CBB8A1EB4166}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADAD5B9A-EFBC-437B-8BBB-8D5D03771D94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADAD5B9A-EFBC-437B-8BBB-8D5D03771D94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADAD5B9A-EFBC-437B-8BBB-8D5D03771D94}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

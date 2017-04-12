@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{ADAD5B9A-EFBC-437B-8BBB-8D5D03771D94}</ProjectGuid>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <OutputName>ConfigurationSectionDesigner</OutputName>
+    <LocalizedStringFile>Strings.wxl</LocalizedStringFile>
+    <SuppressAssemblies>True</SuppressAssemblies>
+    <VerboseOutput>True</VerboseOutput>
+    <OutputType>Library</OutputType>
+    <StartupObject>
+    </StartupObject>
+    <AssemblyName>DslSetup</AssemblyName>
+    <RootNamespace>DslSetup</RootNamespace>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>Configuration=Debug</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>0</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>Configuration=Release</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>0</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\DSLTools\v2.1\wix.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ItemGroup>
+    <None Include="Files.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Files.wxs</LastGenOutput>
+    </None>
+    <Compile Include="Files.wxs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Files.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Registry.wxs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Registry.tt</DependentUpon>
+    </Compile>
+    <None Include="Files\EULA.rtf" />
+    <None Include="InstallerDefinition.dslsetup" />
+    <None Include="Resources\BannerBitmap.bmp" />
+    <None Include="Resources\Product.ico" />
+    <None Include="Resources\NewFldrBtn.bmp" />
+    <None Include="Resources\ReadmeShortcut.ico" />
+    <None Include="Resources\UpFldrBtn.bmp" />
+    <None Include="Registry.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Registry.wxs</LastGenOutput>
+    </None>
+    <None Include="Main.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Main.wxs</LastGenOutput>
+    </None>
+    <Compile Include="Main.wxs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Main.tt</DependentUpon>
+    </Compile>
+    <None Include="Strings.wxl" />
+    <None Include="TextTemplates\ConfigurationSectionDesignerSample.tt">
+    </None>
+    <None Include="TextTemplates\ConfigurationSectionDesignerSchema.tt">
+    </None>
+    <None Include="UI.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>UI.wxs</LastGenOutput>
+    </None>
+    <None Include="VsProjectTemplates\CSharpConfigurationSectionProject.zip" />
+    <None Include="VsProjectTemplates\VBConfigurationSectionProject.zip" />
+    <Compile Include="UI.wxs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UI.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DslPackage\DslPackage.csproj">
+      <Name>DslPackage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dsl\Dsl.csproj">
+      <Name>Dsl</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Files\Readme.htm" />
+  </ItemGroup>
+  <PropertyGroup>
+    <PostBuildEvent>:: Copies the MSI to our special setup bootstrapper project.
+:: xcopy /R /Y $(TargetDir)$(SolutionName).msi $(SolutionDir)DslPackageInstaller\ProductBuild\</PostBuildEvent>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' " />
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' " />
+  <PropertyGroup>
+    <ProjectGuid>{812CAA7E-4AE0-4482-A743-47349E364E18}</ProjectGuid>
+    <AssemblyName>DslPackageInstaller</AssemblyName>
+    <OutputPath>..\$(Configuration)\</OutputPath>
+    <RootNamespace>Assembler</RootNamespace>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <Import Project="$(SharpSetupTargetsPath)\SharpSetup.Assembler.targets" />
+  <ItemGroup>
+    <IncludeInCab Include="..\Debug\Gui.exe">
+      <Link>Gui.exe</Link>
+    </IncludeInCab>
+    <IncludeInCab Include="..\Debug\IntermediateBootstrapper.dll">
+      <Link>IntermediateBootstrapper.dll</Link>
+    </IncludeInCab>
+    <IncludeInCab Include="..\Debug\media1.cab">
+      <Link>media1.cab</Link>
+    </IncludeInCab>
+    <IncludeInCab Include="..\Debug\Package.msi">
+      <Link>Package.msi</Link>
+    </IncludeInCab>
+    <IncludeInCab Include="..\Debug\SharpSetup.dll">
+      <Link>SharpSetup.dll</Link>
+    </IncludeInCab>
+    <IncludeInCab Include="..\ProductBuild\ConfigurationSectionDesigner.msi">
+      <Link>ConfigurationSectionDesigner.msi</Link>
+    </IncludeInCab>
+    <IncludeInCab Include="..\ProductBuild\Readme.htm">
+      <Link>Readme.htm</Link>
+    </IncludeInCab>
+  </ItemGroup>
+  <ItemGroup>
+    <IncludeInCabExtracted Include="..\Debug\Gui.translations.cab">
+      <Link>Gui.translations.cab</Link>
+    </IncludeInCabExtracted>
+    <IncludeInCabExtracted Include="..\Debug\SharpSetup.translations.cab">
+      <Link>SharpSetup.translations.cab</Link>
+    </IncludeInCabExtracted>
+  </ItemGroup>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+</Project>

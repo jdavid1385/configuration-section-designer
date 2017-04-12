@@ -1,0 +1,15 @@
+﻿<!--DSL Tools Language Template-->
+<VSTemplate Version="2.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<TemplateData>
+		<Name Package="{9f16956e-2232-4f80-9ebb-4165929ef3ef}" ID="103"/>
+		<Description Package="{9f16956e-2232-4f80-9ebb-4165929ef3ef}" ID="102"/>
+		<Icon Package="{9f16956e-2232-4f80-9ebb-4165929ef3ef}" ID="201" />
+		<ProjectType>CSharp</ProjectType>
+		<SortOrder>360</SortOrder>
+		<DefaultName>ConfigurationSectionDesigner.csd</DefaultName>
+	</TemplateData>
+	<TemplateContent>
+		<ProjectItem TargetFileName="$fileinputname$.csd" ReplaceParameters="true">csd.csd</ProjectItem>
+		<ProjectItem TargetFileName="$fileinputname$.csd.diagram">csd.diagram</ProjectItem>
+	</TemplateContent>
+</VSTemplate>
