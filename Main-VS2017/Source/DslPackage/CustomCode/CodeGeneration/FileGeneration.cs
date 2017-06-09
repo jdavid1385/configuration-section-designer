@@ -307,18 +307,14 @@ namespace ConfigurationSectionDesigner
                     RegistryKey csd = Registry.CurrentUser.OpenSubKey(key);
                     if (csd != null)
                     {
-                        string kn = string.Format("{0},{1}",
-                                          Constants.ConfigurationSectionDesignerPackageId,
-                                          Assembly.GetExecutingAssembly().GetName().Version.ToString()
-                                      );
-                        string extensionRootDir = csd.GetValue(kn) as string;
+                        var assemblyLocation = Assembly.GetExecutingAssembly().Location;
+                        string extensionRootDir = Path.GetDirectoryName(assemblyLocation);
                         if (!string.IsNullOrEmpty(extensionRootDir))
                         {
                             _textTemplateFolder = Path.Combine(extensionRootDir, "TextTemplates");
                         }
                         else
                         {
-                            Diagnostics.DebugWrite("FileGeneration.TextTemplateFolder_get >> ERROR >> Result is NULL! RegKeyName={0}, RegKeyValue={1}", kn, "NULL");
                             throw new InvalidOperationException("Could not find TextTemplate directory. Try reinstalling the Configuration Section Designer.");
                         }
                     }

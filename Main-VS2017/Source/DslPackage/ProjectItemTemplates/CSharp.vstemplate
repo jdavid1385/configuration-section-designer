@@ -1,7 +1,7 @@
 ﻿<!--DSL Tools Language Template-->
 <VSTemplate Version="3.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<TemplateData>
-		<Name Package="{9f16956e-2232-4f80-9ebb-4165929ef3ef}" ID="103"></Name>
+		<Name Package="{9f16956e-2232-4f80-9ebb-4165929ef3ef}" ID="103">Configuration Section Designer</Name>
 		<!--<TemplateGroupID>General</TemplateGroupID>-->
 		<Description Package="{9f16956e-2232-4f80-9ebb-4165929ef3ef}" ID="102"/>
 		<Icon Package="{9f16956e-2232-4f80-9ebb-4165929ef3ef}" ID="201" />

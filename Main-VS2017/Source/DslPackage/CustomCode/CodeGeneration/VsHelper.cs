@@ -275,7 +275,7 @@ namespace ConfigurationSectionDesigner
         /// <returns><c>true</c> if found; otherwise <c>false</c>.</returns>
         public static bool TryFindProjectItemWithFilePath(Project project, string csdDocumentFilePath, out ProjectItem configurationSectionModelFile)
         {
-            return TryFindProjectItemWithFilePath(project, StandardDocumentPriority, csdDocumentFilePath, out  configurationSectionModelFile);
+            return TryFindProjectItemWithFilePath(project, StandardDocumentPriority, csdDocumentFilePath, out configurationSectionModelFile);
         }
 
         /// <summary>
@@ -332,7 +332,7 @@ namespace ConfigurationSectionDesigner
 
             if (result != VSConstants.S_OK)
                 throw new Exception("Unexpected error calling IVsProject.IsDocumentInProject.");
-            
+
             Diagnostics.DebugWrite("VH.TFP >> vsProject.IsDocumentInProject(inputFilePath, out iFound={0}, pdwPriority, out itemId={1}).", iFound, itemId);
 
             // TODO: [abm] Below here, project build failed! Error was "type is not of VsProject". This only occured on a brand new 
@@ -436,7 +436,7 @@ namespace ConfigurationSectionDesigner
             {
                 throw new ArgumentException("currentProjectItems cannot be null.");
             }
-            
+
             foreach (ProjectItem projectItem in currentProjectItems)
             {
                 Diagnostics.DebugWrite("VsHelper.TryFindProjectItemAndParentProject >> Current projectItem = '{0}', projectItem.ProjectItems.Count={1},", projectItem.Name, (projectItem.ProjectItems != null ? projectItem.ProjectItems.Count.ToString() : "0"));
@@ -471,7 +471,7 @@ namespace ConfigurationSectionDesigner
                     return true;
                 }
             }
-            
+
             return false;
         }
         #endregion

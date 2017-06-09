@@ -21,7 +21,7 @@
 #>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="<#= this.Dsl.PackageGuid #>" Version="2.0.803" Language="en-US" Publisher="rmay" />
+    <Identity Id="<#= this.Dsl.PackageGuid #>" Version="2.0.804" Language="en-US" Publisher="rmay" />
     <DisplayName><#= this.Dsl.DisplayName #></DisplayName>
     <Description>A Visual Studio add-in that allows you to graphically design .NET Configuration Sections and automatically generates all the required code and a schema definition (XSD) for them.</Description>
     <License>MSPL.TXT</License>
