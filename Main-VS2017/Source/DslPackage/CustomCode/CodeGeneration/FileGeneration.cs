@@ -46,9 +46,6 @@ namespace ConfigurationSectionDesigner
         private class TemplateCodeGenerator : TemplatedCodeGenerator //, ITextTemplatingCallback
         {
             //private bool errorOccured = false;
-            private string errorMessage = null;
-
-
 
 
             /// <summary>
